@@ -1378,19 +1378,19 @@
   ],
   "orderList":[
     {
-      "id": 1202110398310861904, //订单id
-      "restaurant_id": 625738,   //餐厅id
+      "id": 1202110398310861904,
+      "restaurant_id": 625738,
       "restaurant_name": "快乐柠檬（迪美店）",
-      "is_brand": 1,             //是否有logo
+      "is_brand": 1,
       "status_bar": {
         "title": "订单已取消",
         "color": "grey2",
         "sub_title": "",
         "image_type": "cancel_order"
       },
-      "formatted_created_at": "2017-02-19 16:03", //时间
-      "total_amount": 289,          //总价
-      "total_quantity": 20,         //总数量
+      "formatted_created_at": "2017-02-19 16:03",
+      "total_amount": 289,
+      "total_quantity": 20,
       "status_code": -4,
       "is_pindan": 0,
       "is_deletable": 1,

@@ -26,6 +26,7 @@ var appData = require('../data.json')
 var seller = appData.seller
 var goods = appData.goods
 var ratings = appData.ratings
+var orderList = appData.orderList
 var apiRouter = express.Router()
 apiRouter.get('/seller', function (req, res) {
   res.json({
@@ -43,6 +44,12 @@ apiRouter.get('/ratings', function (req, res) {
   res.json({
     error: 0,
     data: ratings
+  })
+})
+apiRouter.get('/orderList', function (req, res) {
+  res.json({
+    error: 0,
+    data: orderList
   })
 })
 app.use('/api', apiRouter)

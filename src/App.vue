@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <order-list></order-list>
   </div>
 </template>
 
 <script>
+import orderList from '@/components/orderList/orderList.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  components: [orderList]
 }
 </script>
 
