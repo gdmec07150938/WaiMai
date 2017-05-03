@@ -8,7 +8,7 @@
 import orderList from '@/components/orderList/orderList.vue'
 export default {
   name: 'app',
-  components: [orderList]
+  components: {'order-list': orderList}
 }
 </script>
 

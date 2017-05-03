@@ -25,8 +25,10 @@
       }
     },
     props: {
-      order: Object,
-      require: true
+      order: {
+        type: Object,
+        required: true
+      }
     },
     methods: {
     },
