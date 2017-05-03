@@ -2,11 +2,11 @@
     <div class="order">
         <div class="order-header">
             <span class="seller-avatar">
-                <img src="" width="100px" height="100px">
+                <img :src="order.restaurant_image_url" width="100px" height="100px">
             </span>
-            <span class="seller-name">{{}}</span>
+            <span class="seller-name">{{order.restaurant_name}}</span>
             <i></i>
-            <span>状态</span>
+            <span>{{order.status_bar.title}}</span>
         </div>
         <div class="order-content">
 
@@ -19,9 +19,9 @@
 
 <script type="text/ecmascript-6">
   export default {
+    name: 'Order',
     data: function () {
       return {
-        order: {}
       }
     },
     props: {
@@ -32,7 +32,7 @@
     },
     methods: {
     },
-    created: {
+    created: function () {
     }
   }
 </script>

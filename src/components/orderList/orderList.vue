@@ -2,10 +2,9 @@
     <div class="orderList">
       <ul>
         <li v-for="item in orderList">
-          <order :order='item'></order>
+          <v-order :order='item'></v-order>
         </li>
       </ul>
-      
     </div>
 </template>
 
@@ -13,6 +12,7 @@
   import {parseJson} from '@/common/js/util.js'
   import order from '@/components/order/order'
   export default {
+    name: 'OrderList',
     data: function () {
       return {
         orderList: null
@@ -20,15 +20,15 @@
     },
     methods: {
       order_init: function () {
-
+        this.$http.get('/api/orderList').then((response) => {
+          this.orderList = parseJson(response.body)
+        })
       }
     },
     created: function () {
-      this.$http.get('/api/orderList').then((response) => {
-        this.orderList = parseJson(response.body)
-      })
+      this.order_init()
     },
-    components: [order]
+    components: {'v-order': order}
   }
 </script>
 <style lang="" rel="">
