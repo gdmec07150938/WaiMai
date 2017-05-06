@@ -50,37 +50,73 @@
   }
 </script>
 <style lang="scss" rel="stylesheet/scss">
+    @import "../../common/style/mixin";
     .order{
+        padding: 0 10px;
         .order-header{
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+
             width: 100%;
             height: 50px;
             text-align: center;
+            @include border-1px(rgba(7,17,27,0.1));
             .seller-avatar{
+                flex: 1 0;
                 display: inline-block;
                 width: 50px;
                 height: 50px;
-                vertical-align: middle;
+                margin:0 10px;
+                .img{
+                    border-radius: 50%;
+                }
             }
             .seller-name{
                 display: inline-block;
+                margin-right: 10px;
                 font-size: 18px;
-                vertical-align: middle;
+                font-weight: 700;
             }
             .icon-keyboard_arrow_right{
-                vertical-align: middle;
+                font-size: 24px;
+                color: rgba(7,17,27,0.4);
             }
             .order-status{
-                display: inline-block;
-                vertical-align: middle;
+                font-size: 10px;
+                color: rgba(7,17,27,0.4);
             }
         }
         .order-content{
+
+            width: 100%;
             .order-list{
-                .name{}
-                .count{}
+                height: 28px;
+                .name{
+                    float: left;
+                    line-height: 28px;
+                    font-size: 10px;
+
+                }
+                .count{
+                    float: right;
+                    line-height: 28px;
+                    font-size: 10px;
+                    color: #666;
+                }
             }
             .desc{
+                float: right;
                 .total-amount{}
+            }
+        }
+        .order-footer{
+            text-align: right;
+            button{
+                font-size: 12px;
+                color: #3190e8;
+                border: solid 1px #3190e8;
+                background-color: #fff;
             }
         }
     }
