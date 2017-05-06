@@ -2,7 +2,7 @@
     <div class="order">
         <div class="order-header">
             <span class="seller-avatar">
-                <img :src="order.restaurant_image_url" width="50px" height="50px">
+                <img :src="order.restaurant_image_url" width="28px" height="28px">
             </span>
             <h2 class="seller-name">{{order.restaurant_name}}</h2>
             <i class="icon-keyboard_arrow_right"></i>
@@ -13,6 +13,7 @@
                 <span class="name">{{item.name}}</span>
                 <span class="count">x {{item.quantity}}</span>
             </div>
+            <i v-show="order.total_quantity >= foodCount" class="more">...</i>
             <div class="desc">
                 共{{order.total_quantity}}件商品<i class="total-amount">￥{{order.total_amount}}</i>
             </div>
@@ -52,29 +53,31 @@
 <style lang="scss" rel="stylesheet/scss">
     @import "../../common/style/mixin";
     .order{
-        padding: 0 10px;
+        @include border-1px(rgba(7,17,27,0.1));
+        padding-bottom: 16px;
         .order-header{
             display: flex;
             flex-wrap: nowrap;
+            justify-content: space-between;
             align-items: center;
-
             width: 100%;
             height: 50px;
-            text-align: center;
+
             @include border-1px(rgba(7,17,27,0.1));
             .seller-avatar{
-                flex: 1 0;
+                flex:0 1;
                 display: inline-block;
-                width: 50px;
-                height: 50px;
+                line-height: 50px;
                 margin:0 10px;
-                .img{
+                img{
+                    display: inline-block;
+                    text-align: center;
+                    vertical-align: middle;
                     border-radius: 50%;
                 }
             }
             .seller-name{
                 display: inline-block;
-                margin-right: 10px;
                 font-size: 18px;
                 font-weight: 700;
             }
@@ -83,36 +86,60 @@
                 color: rgba(7,17,27,0.4);
             }
             .order-status{
+                margin-right: 10px;
                 font-size: 10px;
                 color: rgba(7,17,27,0.4);
             }
         }
         .order-content{
-
             width: 100%;
+            clear: both;
             .order-list{
                 height: 28px;
                 .name{
+                    max-width: 75%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                     float: left;
+                    margin-left: 10px;
                     line-height: 28px;
                     font-size: 10px;
-
+                    text-align: left;
                 }
                 .count{
                     float: right;
                     line-height: 28px;
+                    margin-right: 10px;
                     font-size: 10px;
                     color: #666;
                 }
             }
+            .more{
+                display:block;
+                margin-right: 10px;
+                line-height: 28px;
+                font-size: 10px;
+                font-weight: bold;
+                text-align: right;
+            }
             .desc{
-                float: right;
-                .total-amount{}
+                margin-right: 10px;
+                height: 28px;
+                line-height:28px;
+                font-size: 8px;
+                text-align: right;
+                .total-amount{
+                    font-size: 16px;
+                    font-weight: bold;
+                }
             }
         }
         .order-footer{
+            margin: 8px 10px 0px 0px;
             text-align: right;
             button{
+                height: 32px;
                 font-size: 12px;
                 color: #3190e8;
                 border: solid 1px #3190e8;
