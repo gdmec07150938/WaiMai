@@ -9,7 +9,7 @@
             <span class="order-status">{{order.status_bar.title}}</span>
         </div>
 
-        <div class="order-content" @click="showDetailed(orderGroup)">
+        <div class="order-content" @click="showDetailed(order)">
             <div v-for="item in orderGroup" class="order-list">
                 <span class="name">{{item.name}}</span>
                 <span class="count">x {{item.quantity}}</span>
@@ -46,7 +46,9 @@
       }
     },
     methods: {
-      showDetailed: function (orderGroup) {
+      showDetailed: function (order) {
+        console.log(this)
+        this.GLOBAL.setOrderAction(order)
         this.$router.push('/OrderDetailed')
       }
     },
