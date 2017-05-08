@@ -1,8 +1,8 @@
 <template>
     <div class="orderDetail">
         <div class="title">
-            <h3>{{order.timeline_node.title}}</h3>
-            <p>{{order.timeline_node.description}}</p>
+            <h3 class="order-title">{{order.timeline_node.title}}</h3>
+            <p class="order-desc">{{order.timeline_node.description}}</p>
         </div>
         <div class="content">
             <div class="content-title">订单明细</div>
@@ -63,7 +63,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {parseJson} from '@/common/js/util.js'
+  import {parseJson, isEmptyObject} from '@/common/js/util.js'
   export default {
     props: {
     },
@@ -78,12 +78,25 @@
         this.$http.get('/api/orderDetailed').then((response) => {
           this.orderDetail = parseJson(response.body)
         })
+      },
+      check_data: function () {
+        if (isEmptyObject(this.order)) {
+          this.$router.push('/order')
+        }
       }
     },
     created: function () {
       this.orderDetail_init()
+      this.check_data()
     }
   }
 </script>
 <style lang="scss" rel="stylesheet/scss">
+    .orderDetail{
+        .title{
+            .order-title{}
+            .order-desc{}
+        }
+        .content{}
+    }
 </style>
