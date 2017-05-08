@@ -49,7 +49,7 @@
       showDetailed: function (order) {
         console.log(this)
         this.GLOBAL.setOrderAction(order)
-        this.$router.push('/OrderDetailed')
+        this.$router.push('/orderDetailed')
       }
     },
     created: function () {

@@ -6,4 +6,11 @@ function parseJson (json) {
     console.log('请求失败')
   }
 }
-export {parseJson}
+function isEmptyObject (e) {
+  var t
+  for (t in e) {
+    return !1
+  }
+  return !0
+}
+export {parseJson, isEmptyObject}
