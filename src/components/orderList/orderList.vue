@@ -1,6 +1,6 @@
 <template>
     <div class="orderList">
-      <ul>
+      <ul class="orderList-wrapper">
         <li v-for="item in orderList">
           <v-order :order='item'></v-order>
         </li>
@@ -25,23 +25,32 @@
           this.orderList = parseJson(response.body)
         })
       },
-      init_scroll: function () {
+      scroll_init: function () {
         this.$nextTick(function () {
-          if (!this.orderDetailScroll) {
-            this.orderDetailScroll = new IScroll(this.$el, {mouseWheel: true})
+          if (!this.orderScroll) {
+            this.orderScroll = new IScroll(this.$el, {mouseWheel: true, click: true})
           } else {
-            this.orderDetailScroll.refresh()
+            this.orderScroll.refresh()
           }
         })
       }
     },
     created: function () {
       this.order_init()
-      this.order_init()
+      this.scroll_init()
     },
     components: {'v-order': order}
   }
 </script>
-<style lang="" rel="">
+<style lang="scss" rel="stylesheet/scss">
+    .orderList{
+        position: absolute;
+        top: 40px;
+        bottom: 40px;
+        overflow: hidden;
+        width: 100%;
+        .orderList-wrapper{}
+    }
+
 </style>
 

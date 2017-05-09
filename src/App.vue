@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <div style="height: 40px;position:absolute;top: 0px">这是头部</div>
     <router-view></router-view>
+    <div style="height: 40px;position: absolute;bottom: 0px">这是底部</div>
   </div>
 </template>
 
