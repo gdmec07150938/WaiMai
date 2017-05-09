@@ -1,4 +1,4 @@
-@mixin border-1px($color){
+@mixin border-1px($color,$solid:solid){
   position: relative;
   &:after {
     display: block;
@@ -7,7 +7,8 @@
     left: 0;
     content: ' ';
     bottom: 0;
-    border-bottom: 1px solid $color;
+    border-bottom: 1px $solid $color;
+
   }
 }
 
