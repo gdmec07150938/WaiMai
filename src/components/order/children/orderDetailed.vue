@@ -38,27 +38,27 @@
         </div>
         <split></split>
         <div class="other">
-            <div class="content-title">订单明细</div>
+            <div class="content-title">其他信息</div>
             <div class="other-content">
                 <ul>
                     <li class="item">
-                        <span class="name">订单号</span>
+                        <span class="name">订单号：<i class="forjustify"></i></span>
                         <span class="desc">{{orderDetail.id}}</span>
                     </li>
                     <li class="item">
-                        <span class="name">支付方式</span>
+                        <span class="name">支付方式：</span>
                         <span class="desc">{{orderDetail.pay_method}}</span>
                     </li>
                     <li class="item">
-                        <span class="name">下单时间</span>
+                        <span class="name">下单时间：</span>
                         <span class="desc">{{orderDetail.formatted_created_at}}</span>
                     </li>
                     <li class="item">
-                        <span class="name">收货信息:</span>
-                        <span class="desc">{{orderDetail.consignee}}  {{orderDetail.phone}}<p>{{orderDetail.address}}</p></span>
+                        <span class="name">收货信息：</span>
+                        <span class="desc">{{orderDetail.consignee}}  {{orderDetail.phone}}<br>{{orderDetail.address}}</br></span>
                     </li>
                     <li class="item">
-                        <span class="name">配送时间</span>
+                        <span class="name">配送时间：</span>
                         <span class="desc">{{orderDetail.deliver_time}}</span>
                     </li>
                 </ul>
@@ -223,10 +223,40 @@
             }
         }
         .other{
-            .item{
-                .name{}
-                .desc{}
+            padding: 0px 10px;
+            margin: 10px 0px;
+            .content-title{
+                text-align: left;
+                font-size: 18px;
+                color: rgba(7,17,27,0.4);
             }
+            .other-content{
+                .item{
+                    display:block;
+                    clear:both;
+                    min-height: 28px;
+                    .name{
+                        display:inline-block;
+                        float:left;
+                        width:80px;
+                        height:28px;
+                        overflow: hidden;
+                        line-height:28px;
+                        text-align:justify;
+                        .forjustify{
+                            display: inline-block;
+                            width: 100%;
+                        }
+                    }
+                    .desc{
+                        display:inline-block;
+                        float:left;
+                        line-height:28px;
+                        text-align:left;
+                    }
+                }
+            }
+            
         }
     }
 </style>
