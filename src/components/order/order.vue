@@ -21,7 +21,7 @@
         </div>
         <div class="order-footer">
             <button>再来一单</button>
-            <button>去评价</button>
+            <button @click="addRating(order)">去评价</button>
         </div>
     </div>
 </template>
@@ -50,6 +50,10 @@
         console.log(this)
         this.GLOBAL.setOrderAction(order)
         this.$router.push('/orderDetailed')
+      },
+      addRating: function (order) {
+        this.GLOBAL.setOrderAction(order)
+        this.$router.push('/addRating')
       }
     },
     created: function () {
