@@ -1,41 +1,49 @@
 <template>
     <div class="addRating">
-        <div class="header">
-            <div class="seller">
+        <div class="addRating-wrapper">
+            <div class="header">
+                <div class="seller">
                 <span class="seller-icon">
                     <img :src="order.restaurant_image_url" width="35px" height="35px">
                 </span>
-                <span class="name">
+                    <span class="name">
                     商家名
                 </span>
+                </div>
+                <div class="title">为商家服务打分</div>
+                <div class="start">
+                    <rater :fontSize="40"></rater>
+                </div>
             </div>
-            <div class="title">为商家服务打分</div>
-            <div class="start">
-                <rater :fontSize="40"></rater>
+            <div class="rating-food">
+                <div class="text rating-food-item border-1px">
+                    请选择想推荐或吐槽的商品（选填）
+                </div>
+                <div class="rating-food-item food-list" v-for="item in foodList">
+                    <span class="food-name">{{item.name}}</span>
+                    <span class="food-thumb">
+                        <i class="icon-thumb_up" @click="" :class="{active: thumb_up}"></i>
+                        <i class="icon-thumb_down" @click="" :class="{active: thumb_down}"></i>
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="rating-food">
-            <div class="text rating-food-item border-1px">
-                请选择想推荐或吐槽的商品（选填）
-            </div>
-            <div class="rating-food-item food-list" v-for="item in foodList">
-                <span class="food-name">{{item.name}}</span>
-                <span class="food-thumb">
-                    <i class="icon-thumb_up"></i>
-                    <i class="icon-thumb_down"></i>
-                </span>
-            </div>
-        </div>
-        <div class="seller-delivery">
-            <span class="title">配送服务</span>
-            <span class="start-warpper">
+            <div class="seller-delivery">
+                <span class="title">配送服务</span>
+                <span class="start-warpper">
                 <rater :fontSize="25"></rater>
             </span>
+            </div>
+            <div class="text">
+            <textarea placeholder="你的评价将匿名发送给商家" rows="4" cols="30" maxlength="50">
+            </textarea>
+            </div>
         </div>
+        <button class="submit-rating">提交评价</button>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import IScroll from 'iscroll'
   import rater from '@/components/rater/rater'
   import {isEmptyObject} from '@/common/js/util.js'
   export default {
@@ -43,7 +51,9 @@
     data: function () {
       return {
         order: this.GLOBAL.state.order,
-        foodList: this.GLOBAL.state.order.basket.group[0]
+        foodList: this.GLOBAL.state.order.basket.group[0],
+        thumb_up: false,
+        thumb_down: false
       }
     },
     methods: {
@@ -51,96 +61,154 @@
         if (isEmptyObject(this.order)) {
           this.$router.push('/order')
         }
+      },
+      scroll_init: function () {
+        this.$nextTick(function () {
+          if (!this.addRatingScroll) {
+            this.addRatingScroll = new IScroll(this.$el, {mouseWheel: true, click: true})
+          } else {
+            this.addRatingScroll.refresh()
+          }
+        })
       }
     },
     components: {'rater': rater},
     created: function () {
       this.check_data()
+      this.scroll_init()
     }
   }
 </script>
 <style lang="scss" rel="stylesheet/scss">
     @import "../../common/style/mixin";
     .addRating{
-        margin: 0 15px;
-        .header{
-            display: block;
-            width: 100%;
-            height: 150px;
-            margin-top: 12px;
-            .seller{
+        position: absolute;
+        top: 44px;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        overflow: hidden;
+        .addRating-wrapper{
+            min-width: 300px;
+            margin: 0 15px;
+            .header{
                 display: block;
-                margin-bottom: 14px;
-                .seller-icon{
-                    display: inline-block;
-                    vertical-align: middle;
-                    margin-right: 10px;
-                    img{}
-                }
-                .name{
-                    height: 26px;
-                    line-height: 26px;
-                    display: inline-block;
-                    font-size: 14px;
-                    vertical-align: middle;
-                }
-            }
-            .title{
-                display: block;
-                height: 20px;
-                margin-bottom: 14px;
-                line-height: 20px;
-                font-size: 12px;
-                color: rgba(136,136,136,100);
-            }
-            .start{
-                height: 40px;
-            }
-        }
-        .rating-food{
-            .rating-food-item{
-                height: 40px;
-                line-height: 40px;
-                text-align: left;
-            }
-            .text{
-                font-size: 12px;
-                color: rgba(136,136,136,100);
-                @include border-1px(rgba(204,204,204,100))
-            }
-            .food-list{
-                font-size: 13px;
-                color: #505050;
-                clear: both;
-                .food-thumb{
-                    display: inline-block;
-                    float: right;
-                    i{
-                        height: 14px;
-                        width: 14px;
-                        margin-left: 10px;
-                        color: rgba(153,153,153,100);
+                width: 100%;
+                height: 150px;
+                margin-top: 12px;
+                .seller{
+                    display: block;
+                    margin-bottom: 14px;
+                    .seller-icon{
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-right: 10px;
+                        img{}
+                    }
+                    .name{
+                        height: 26px;
+                        line-height: 26px;
+                        display: inline-block;
+                        font-size: 14px;
+                        vertical-align: middle;
                     }
                 }
+                .title{
+                    display: block;
+                    height: 20px;
+                    margin-bottom: 14px;
+                    line-height: 20px;
+                    font-size: 12px;
+                    color: rgba(136,136,136,100);
+                }
+                .start{
+                    height: 40px;
+                }
+            }
+            .rating-food{
+                .rating-food-item{
+                    height: 40px;
+                    line-height: 40px;
+                    text-align: left;
+                }
+                .text{
+                    font-size: 12px;
+                    color: rgba(136,136,136,100);
+                    @include border-1px(rgba(204,204,204,100))
+                }
+                .food-list{
+                    font-size: 13px;
+                    color: #505050;
+                    clear: both;
+                    .food-name{
+                        max-width:80%;
+                        overflow: hidden;
+                        display: inline-block;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                    .food-thumb{
+                        display: inline-block;
+                        float: right;
+                        i{
+                            height: 14px;
+                            width: 14px;
+                            margin-left: 10px;
+                            color: rgba(153,153,153,100);
+                        }
+                        .icon-thumb_up{
+                            &.active{
+                                color: #3190e8;
+                            }
+                        }
+                        .icon-thumb_down{}
+                    }
 
+                }
+            }
+            .seller-delivery{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 40px;
+                line-height: 40px;
+                vertical-align: middle;
+                text-align: left;
+                .title{
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 14px;
+                }
+                .start-warpper{
+                    display: inline-block;
+                    height: 25px;
+                    line-height: 25px;
+                    vertical-align: middle;
+                }
+            }
+            .text{
+                min-height: 40px;
+                max-height: 120px;
+                overflow: hidden;
+                textarea{
+                    width: 100%;
+                    border: none;
+                    resize: none;
+                    font-size: 12px;
+                    line-height: 20px;
+                }
             }
         }
-        .seller-delivery{
-            height: 40px;
-            line-height: 40px;
-            vertical-align: middle;
-            text-align: left;
-            .title{
-                display: inline-block;
-                vertical-align: middle;
-                font-size: 14px;
-            }
-            .start-warpper{
-                display: inline-block;
-                height: 25px;
-                line-height: 25px;
-                vertical-align: middle;
-            }
+        .submit-rating{
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 48px;
+            font-size: 14px;
+            color: #fff;
+            background-color: #3190e8;
+            border: none;
         }
     }
 
