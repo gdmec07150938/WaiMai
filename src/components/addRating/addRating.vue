@@ -7,7 +7,7 @@
                     <img :src="order.restaurant_image_url" width="35px" height="35px">
                 </span>
                     <span class="name">
-                    商家名
+                    {{order.restaurant_name}}
                 </span>
                 </div>
                 <div class="title">为商家服务打分</div>
