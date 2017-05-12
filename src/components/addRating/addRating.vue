@@ -19,11 +19,11 @@
                 <div class="text rating-food-item border-1px">
                     请选择想推荐或吐槽的商品（选填）
                 </div>
-                <div class="rating-food-item food-list" v-for="item in foodList">
+                <div class="rating-food-item food-list" v-for="(item, index) in foodList">
                     <span class="food-name">{{item.name}}</span>
                     <span class="food-thumb">
-                        <i class="icon-thumb_up" @click="" :class="{active: thumb_up}"></i>
-                        <i class="icon-thumb_down" @click="" :class="{active: thumb_down}"></i>
+                        <i class="icon-thumb_up" @click="save_thumb(index, 'thumb_up')" :class="{active: thumb[index].thumb_up}"></i>
+                        <i class="icon-thumb_down" @click="save_thumb(index, 'thumb_down')" :class="{active: thumb[index].thumb_down}"></i>
                     </span>
                 </div>
             </div>
@@ -52,8 +52,11 @@
       return {
         order: this.GLOBAL.state.order,
         foodList: this.GLOBAL.state.order.basket.group[0],
-        thumb_up: false,
-        thumb_down: false
+        thumb: [{
+          foodID: 0,
+          thumb_up: false,
+          thumb_down: false
+        }]
       }
     },
     methods: {
@@ -70,10 +73,39 @@
             this.addRatingScroll.refresh()
           }
         })
+      },
+      init_thumb: function () {
+        for (let i = 0; i < this.foodList.length; i++) {
+          let json = {
+            foodID: 0,
+            thumb_up: false,
+            thumb_down: false
+          }
+          this.thumb[i] = json
+          this.thumb[i].foodID = i
+        }
+        this.thumb = Object.assign({}, this.thumb)
+      },
+      save_thumb: function (index, sign) {
+        switch (sign) {
+          case 'thumb_up': this.thumb[index].thumb_up = !this.thumb[index].thumb_up
+            if (this.thumb[index].thumb_up === true) {
+              this.thumb[index].thumb_down = false
+            }
+            break
+          case 'thumb_down': this.thumb[index].thumb_down = !this.thumb[index].thumb_down
+            if (this.thumb[index].thumb_down === true) {
+              this.thumb[index].thumb_up = false
+            }
+            break
+          default: console.log(sign)
+        }
       }
     },
     components: {'rater': rater},
+    beforeCreate: function () {},
     created: function () {
+      this.init_thumb()
       this.check_data()
       this.scroll_init()
     }
@@ -161,7 +193,11 @@
                                 color: #3190e8;
                             }
                         }
-                        .icon-thumb_down{}
+                        .icon-thumb_down{
+                            &.active{
+                                color: #3190e8;
+                            }
+                        }
                     }
 
                 }
