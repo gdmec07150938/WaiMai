@@ -2,10 +2,12 @@
     <div class="order border-1px">
         <div class="order-header border-1px">
             <span class="seller-avatar">
-                <img :src="order.restaurant_image_url" width="28px" height="28px">
+                <img :src="order.restaurant_image_url" width="32px" height="32px">
             </span>
-            <h2 class="seller-name">{{order.restaurant_name}}</h2>
-            <i class="icon-keyboard_arrow_right"></i>
+            <div class="center">
+                <h2 class="seller-name ">{{order.restaurant_name}}</h2>
+                <i class="icon-keyboard_arrow_right"></i>
+            </div>
             <span class="order-status">{{order.status_bar.title}}</span>
         </div>
 
@@ -63,6 +65,7 @@
 <style lang="scss" rel="stylesheet/scss">
     @import "../../common/style/mixin";
     .order{
+        min-width: 300px;
         @include border-1px(rgba(7,17,27,0.1));
         padding-bottom: 16px;
         .order-header{
@@ -86,14 +89,21 @@
                     border-radius: 50%;
                 }
             }
-            .seller-name{
+            .center{
                 display: inline-block;
-                font-size: 18px;
-                font-weight: 700;
-            }
-            .icon-keyboard_arrow_right{
-                font-size: 24px;
-                color: rgba(7,17,27,0.4);
+                white-space: nowrap;
+                .seller-name{
+                    display: inline-block;
+                    font-size: 16px;
+                    font-weight: 700;
+                    vertical-align: middle;
+                }
+                .icon-keyboard_arrow_right{
+                    display: inline-block;
+                    font-size: 24px;
+                    color: rgba(7,17,27,0.4);
+                    vertical-align: middle;
+                }
             }
             .order-status{
                 margin-right: 10px;

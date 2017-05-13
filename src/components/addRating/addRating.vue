@@ -196,10 +196,12 @@
                         display: inline-block;
                         float: right;
                         i{
-                            height: 14px;
-                            width: 14px;
+                            height: 18px;
+                            width: 18px;
                             margin-left: 10px;
+                            font-size: 18px;
                             color: rgba(153,153,153,100);
+                            vertical-align: middle;
                         }
                         .icon-thumb_up{
                             &.active{

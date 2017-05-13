@@ -184,7 +184,7 @@
                         }
                         .seller-name{
                             display: inline-block;
-                            font-size: 18px;
+                            font-size: 16px;
                             font-weight: 700;
                         }
                         .icon-keyboard_arrow_right{
