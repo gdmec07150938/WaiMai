@@ -1,6 +1,6 @@
 <template>
-    <div class="order">
-        <div class="order-header">
+    <div class="order border-1px">
+        <div class="order-header border-1px">
             <span class="seller-avatar">
                 <img :src="order.restaurant_image_url" width="28px" height="28px">
             </span>
@@ -97,7 +97,7 @@
             }
             .order-status{
                 margin-right: 10px;
-                font-size: 10px;
+                font-size: 12px;
                 color: rgba(7,17,27,0.4);
             }
         }
@@ -137,7 +137,7 @@
                 margin-right: 10px;
                 height: 28px;
                 line-height:28px;
-                font-size: 8px;
+                font-size: 12px;
                 text-align: right;
                 .total-amount{
                     font-size: 16px;

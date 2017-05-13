@@ -9,21 +9,21 @@
             <div class="content">
                 <div class="content-title">订单明细</div>
                 <div class="content-content">
-                    <div class="order-header">
+                    <div class="order-header border-1px">
                     <span class="seller-avatar">
                         <img :src="order.restaurant_image_url" width="28px" height="28px">
                     </span>
                         <h2 class="seller-name">{{order.restaurant_name}}</h2>
                         <i class="icon-keyboard_arrow_right"></i>
                     </div>
-                    <ul class="food-list">
+                    <ul class="food-list border-1px">
                         <li class="food" v-for="item in order.basket.group[0]">
                             <span class="name">{{item.name}}</span>
                             <span class="count">x{{item.quantity}}</span>
                             <span class="price">￥{{item.price}}</span>
                         </li>
                     </ul>
-                    <div class="fee">
+                    <div class="fee border-1px">
                         <div class="deliver_fee">
                             <span class="name">{{order.basket.deliver_fee.name}}</span>
                             <span class="price">￥{{order.basket.deliver_fee.price}}</span>
@@ -75,7 +75,6 @@
   import IScroll from 'iscroll'
   import {parseJson, isEmptyObject} from '@/common/js/util.js'
   import split from '@/components/split/split'
-
   const FROMPATH = '/order'
   export default {
     props: {
@@ -149,7 +148,7 @@
                 .order-desc{
                     line-height: 16px;
                     text-align: left;
-                    font-size: 8px;
+                    font-size: 10px;
                 }
             }
             .content{
@@ -204,20 +203,20 @@
                                 white-space: nowrap;
                                 float: left;
                                 line-height: 28px;
-                                font-size: 10px;
+                                font-size: 12px;
                                 text-align: left;
                             }
                             .count{
                                 float: right;
                                 line-height: 28px;
-                                font-size: 10px;
+                                font-size: 12px;
                                 color: #666;
                             }
                             .price{
                                 float: right;
                                 margin-right: 20px;
                                 line-height: 28px;
-                                font-size: 10px;
+                                font-size: 12px;
                                 color: #666;
                             }
                         }
@@ -226,7 +225,7 @@
                         @include border-1px(rgba(7,17,27,0.1),dashed);
                         .deliver_fee{
                             height: 28px;
-                            font-size: 10px;
+                            font-size: 12px;
                             .name{
                                 float: left;
                                 line-height: 28px;
@@ -240,7 +239,7 @@
                         }
                         .packing_fee{
                             height: 28px;
-                            font-size: 10px;
+                            font-size: 12px;
                             .name{
                                 max-width: 75%;
                                 overflow: hidden;
@@ -248,20 +247,20 @@
                                 white-space: nowrap;
                                 float: left;
                                 line-height: 28px;
-                                font-size: 10px;
+                                font-size: 12px;
                                 text-align: left;
                             }
                             .price{
                                 float: right;
                                 margin-right: 20px;
                                 line-height: 28px;
-                                font-size: 10px;
+                                font-size: 12px;
                                 color: #666;
                             }
                             .count{
                                 float: right;
                                 line-height: 28px;
-                                font-size: 10px;
+                                font-size: 12px;
                                 color: #666;
                             }
                         }
@@ -270,7 +269,7 @@
                         margin: 6px 0px;
                         height: 28px;
                         .total-price{
-                            font-size: 8px;
+                            font-size: 12px;
                             i{
                                 font-size: 18px;
                                 font-weight: bold;
@@ -305,6 +304,7 @@
                             height:28px;
                             overflow: hidden;
                             line-height:28px;
+                            font-size: 12px;
                             text-align:justify;
                             .forjustify{
                                 display: inline-block;
@@ -315,6 +315,7 @@
                             display:inline-block;
                             float:left;
                             line-height:28px;
+                            font-size: 12px;
                             text-align:left;
                         }
                     }
