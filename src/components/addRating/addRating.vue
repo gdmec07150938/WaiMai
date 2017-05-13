@@ -46,6 +46,7 @@
   import IScroll from 'iscroll'
   import rater from '@/components/rater/rater'
   import {isEmptyObject} from '@/common/js/util.js'
+  const FROMPATH = '/order'
   export default {
     props: {},
     data: function () {
@@ -103,10 +104,21 @@
       }
     },
     components: {'rater': rater},
-    beforeCreate: function () {},
+    beforeRouteEnter: function (to, from, next) {
+      if (from.path !== FROMPATH) {
+        if (from.path === '/') {
+          next(FROMPATH)
+        }
+        next(false)
+      }
+      next()
+    },
     created: function () {
       this.init_thumb()
       this.check_data()
+      this.scroll_init()
+    },
+    updated: function () {
       this.scroll_init()
     }
   }
@@ -178,6 +190,7 @@
                         display: inline-block;
                         white-space: nowrap;
                         text-overflow: ellipsis;
+                        font-size: 13px;
                     }
                     .food-thumb{
                         display: inline-block;

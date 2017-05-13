@@ -75,6 +75,8 @@
   import IScroll from 'iscroll'
   import {parseJson, isEmptyObject} from '@/common/js/util.js'
   import split from '@/components/split/split'
+
+  const FROMPATH = '/order'
   export default {
     props: {
     },
@@ -105,9 +107,21 @@
         })
       }
     },
+    beforeRouteEnter: function (to, from, next) {
+      if (from.path !== FROMPATH) {
+        if (from.path === '/') {
+          next(FROMPATH)
+        }
+        next(false)
+      }
+      next()
+    },
     created: function () {
       this.orderDetail_init()
       this.check_data()
+      this.init_scroll()
+    },
+    updated: function () {
       this.init_scroll()
     },
     components: {split}

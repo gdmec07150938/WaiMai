@@ -39,6 +39,11 @@
       this.order_init()
       this.scroll_init()
     },
+    mounted: function () {
+    },
+    updated: function () {
+      this.scroll_init()
+    },
     components: {'v-order': order}
   }
 </script>

@@ -114,7 +114,7 @@
                     float: left;
                     margin-left: 10px;
                     line-height: 28px;
-                    font-size: 10px;
+                    font-size: 13px;
                     text-align: left;
                 }
                 .count{
