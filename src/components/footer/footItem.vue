@@ -1,9 +1,9 @@
 <template>
-    <div class="foot-item" :class="{activity:isActivity}" @click="onItemClick">
-        <i class="icon-class">
+    <div class="foot-item" @click="onItemClick">
+        <i class="icon-class" :class="{activity:isActivity}">
             <slot name='icon'></slot>
         </i>
-        <i class="label-class">
+        <i class="label-class" :class="{activity:isActivity}">
             <slot name="label">label</slot>
         </i>
     </div>
@@ -30,7 +30,6 @@
     },
     methods: {
       onItemClick: function () {
-        this.isActivity = true
         this.$emit('ItemWasClick', this.index)
         this.$router.push(this.link)
       }
@@ -57,8 +56,11 @@
             & > * {
                 width: 20px;
                 height: 20px;
-                color: white;
+                color: rgb(146, 146, 146);
                 box-sizing: border-box;
+            }
+            &.activity > *{
+                color: rgb(0, 151, 255);
             }
         }
         .label-class{
@@ -71,6 +73,9 @@
             font-weight: 200;
             & > * {
                 font-size: 10px;
+            }
+            &.activity > *{
+                color: rgb(0, 151, 255);
             }
         }
     }

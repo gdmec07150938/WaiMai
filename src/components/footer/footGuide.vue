@@ -1,12 +1,8 @@
 <template>
     <div class="footGuide">
         <div class="footGuide-wrapper">
-            <foot-item link="/" :isActivity='true' :index="1110" v-on:ItemWasClick="currentIndex(arguments[0])">
-                <img  slot="icon" src="./e.svg"></img>
-                <p slot="label">首页</p>
-            </foot-item>
             <foot-item v-for='item in footItemArray' :key="item.itemIndex" :link="item.link" :isActivity='item.isActivity' :index="item.itemIndex" v-on:ItemWasClick="currentIndex(arguments[0])">
-                <img  slot="icon" :src="item.src"></img>
+                <i slot="icon" :class="item.src"></i>
                 <p slot="label">{{item.label}}</p>
             </foot-item>
         </div>
@@ -19,9 +15,9 @@
     data: function () {
       return {
         footItemArray: [
-          { itemIndex: 1, src: './e.svg', label: '首页', link: '/', isActivity: true },
-          { itemIndex: 2, src: './order.svg', label: '订单', link: '/order', isActivity: false },
-          { itemIndex: 3, src: './account.svg', label: '首页', link: 'myZone', isActivity: false }
+          { itemIndex: 0, src: 'icon-home', label: '首页', link: '/', isActivity: true },
+          { itemIndex: 1, src: 'icon-order', label: '订单', link: '/order', isActivity: false },
+          { itemIndex: 2, src: 'icon-account', label: '我的', link: 'myZone', isActivity: false }
         ]
       }
     },
@@ -30,7 +26,11 @@
     },
     methods: {
       currentIndex: function (index) {
-        console.log(index)
+        this.footItemArray[index].isActivity = true
+        for (let i = 0; i < this.footItemArray.length; i++) {
+          if (i === index) { continue }
+          this.footItemArray[i].isActivity = false
+        }
       }
     }
   }
