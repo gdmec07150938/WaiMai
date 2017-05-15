@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <div style="height: 40px;position:absolute;top: 0px">这是头部</div>
     <router-view></router-view>
-    <div style="height: 40px;position: absolute;bottom: 0px">这是底部</div>
+    <foot-guide></foot-guide>
   </div>
 </template>
 
 <script>
 import orderList from '@/components/orderList/orderList.vue'
+import footGuide from '@/components/footer/footGuide'
 export default {
   name: 'app',
-  components: {'order-list': orderList}
+  components: { 'order-list': orderList, 'foot-guide': footGuide }
 }
 </script>
 
