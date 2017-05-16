@@ -1,6 +1,6 @@
 <template>
   <div class="myzone_index">
-    <ActionBar title="我的"></ActionBar>
+    <ActionBar title="我的" :show="true"></ActionBar>
     <div class="myzone_content">
       <div class="myzone_info clear">
         <img src="./slider-pic11.jpeg" alt="">
@@ -32,40 +32,30 @@
       </a>
     </div>
     <div class="some_bar">
-      <svg class="v-md">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#order.070ae2a"></use>
-      </svg>
+    <img src="./my.png" alt="">
       <span class="v-md">我的订单</span>
     </div>
     <div class="some_bar">
-      <svg class="v-md">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shop"></use>
-      </svg>
+    <img src="./zhifen.png" alt="">
       <span class="v-md">积分商城</span>
     </div>
     <div class="some_bar">
-      <svg class="v-md">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#eleme"></use>
-      </svg>
-      <span class="v-md">饿了么会员卡</span>
+    <img src="./huiyuan.png" alt="">
+      <span class="v-md">会员卡</span>
     </div>
 
     <div class="some_bar ">
-      <svg class="v-md">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#discover.5811137"></use>
-      </svg>
+    <img src="./fuwu.png" alt="">
       <span class="v-md">服务中心</span>
     </div>
     <div class="some_bar">
-      <svg class="v-md">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#index.18edf5a"></use>
-      </svg>
-      <span class="v-md">下载饿了么APP</span>
+    <img src="./app.png" alt="">
+      <span class="v-md">下载APP</span>
     </div>
   </div>
 </template>
 <script>
-import ActionBar from '../actionBar/ActionBar'
+import ActionBar from '@/components/actionBar/ActionBar'
 export default {
   name: 'myzone',
   data () {
@@ -141,18 +131,20 @@ export default {
 }
 .some_bar{
   width: 100%;
-  height: 30px;
-  padding:30px;
+  height: 60px;
+  padding-left:20px;
   box-sizing: border-box;
+  line-height:60px;
   background:#fff;
   font-size:18px;
   border-top:1px solid #dedede;
 }
-.some_bar svg{
+.some_bar img{
     width: 20px;
     height: 20px;
+    border:none
 }
-.some_bar span{
-    margin-left:20px;
+.some_bar * {
+    vertical-align:middle;
 }
 </style>

@@ -1,9 +1,7 @@
 <template>
   <div class="back_box">
     <div class="back_arrow" @click="back_one">
-      <svg>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left.6f6409e"></use>
-      </svg>
+    <img src="./fanhui.png" alt="" v-show="show">
     </div>
     <h3>{{ title }}</h3>
   </div>
@@ -11,7 +9,7 @@
 <script>
 export default {
   name: 'actionbar',
-  props: ['title'],
+  props: ['title', 'show'],
   data () {
     return {
     }
@@ -41,18 +39,18 @@ export default {
     display:block;
     font-size:18px;
     text-align:center;
-    font-weight:b0ld;
+    font-weight:bold;
   }
 .back_arrow{
     width:10px;
-    height:10px;
+    height:20px;
     position:absolute;
     left:0;
     top:0;
   }
-.back_arrow svg{
-      width:30px;
-      height:30px;
+.back_arrow img{
+      width:20px;
+      height:20px;
       position:absolute;
       left:50%;
       top:50%;

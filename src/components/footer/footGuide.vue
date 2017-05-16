@@ -42,6 +42,8 @@
       left: 0px;
       width: 100%;
       height: 48px;
+      z-index: 0;
+      background-color: white;
       .footGuide-wrapper{
           display: flex;
           height: 48px;

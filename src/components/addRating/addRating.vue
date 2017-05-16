@@ -132,6 +132,8 @@
         left: 0px;
         width: 100%;
         overflow: hidden;
+        z-index: 1;
+        background-color: white;
         .addRating-wrapper{
             min-width: 300px;
             margin: 0 15px;
@@ -238,7 +240,7 @@
                 }
             }
             .text{
-                min-height: 40px;
+                min-height: 60px;
                 max-height: 120px;
                 overflow: hidden;
                 textarea{

@@ -134,6 +134,8 @@
         bottom: 0px;
         width: 100%;
         overflow: hidden;
+        background-color: white;
+        z-index: 1;
         .orderDetail-wrapper{
             width: 100%;
             .title{

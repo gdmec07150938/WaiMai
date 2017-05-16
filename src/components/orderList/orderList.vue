@@ -7,11 +7,11 @@
       </ul>
     </div>
 </template>
-
 <script type="text/ecmascript-6">
   import IScroll from 'iscroll'
   import {parseJson} from '@/common/js/util.js'
   import order from '@/components/order/order'
+  import ActionBar from '@/components/actionBar/ActionBar'
   export default {
     name: 'OrderList',
     data: function () {
@@ -44,14 +44,14 @@
     updated: function () {
       this.scroll_init()
     },
-    components: {'v-order': order}
+    components: {'v-order': order, 'ActionBar': ActionBar}
   }
 </script>
 <style lang="scss" rel="stylesheet/scss">
     .orderList{
         position: absolute;
         top: 40px;
-        bottom: 40px;
+        bottom: 48px;
         overflow: hidden;
         width: 100%;
         .orderList-wrapper{}
