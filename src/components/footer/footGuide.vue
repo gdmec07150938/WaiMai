@@ -16,8 +16,8 @@
       return {
         footItemArray: [
           { itemIndex: 0, src: 'icon-home', label: '首页', link: '/', isActivity: true },
-          { itemIndex: 1, src: 'icon-order', label: '订单', link: '/order', isActivity: false },
-          { itemIndex: 2, src: 'icon-account', label: '我的', link: 'myZone', isActivity: false }
+          { itemIndex: 1, src: 'icon-order', label: '订单', link: '/Order', isActivity: false },
+          { itemIndex: 2, src: 'icon-account', label: '我的', link: 'Account', isActivity: false }
         ]
       }
     },

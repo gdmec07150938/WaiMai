@@ -1,16 +1,16 @@
 <template>
   <div id="app">
+    <router-view name="header"></router-view>
     <router-view></router-view>
     <foot-guide></foot-guide>
   </div>
 </template>
 
 <script>
-import orderList from '@/components/orderList/orderList.vue'
 import footGuide from '@/components/footer/footGuide'
 export default {
   name: 'app',
-  components: { 'order-list': orderList, 'foot-guide': footGuide }
+  components: { 'foot-guide': footGuide }
 }
 </script>
 

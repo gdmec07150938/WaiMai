@@ -1,31 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import OrderList from '@/components/orderList/orderList'
-import OrderDetailed from '@/components/order/children/orderDetailed'
-import addRating from '@/components/addRating/addRating'
-import Myzone from '@/components/myZone/MyZone'
+import Order from '@/page/order/Order'
+import OrderDetailed from '@/page/order/next/OrderDetailed'
+import AddRating from '@/page/addRating/AddRating'
+import Account from '@/page/account/Account'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/order',
-      name: 'OrderList',
-      component: OrderList
+      path: '/Order',
+      name: 'Order',
+      component: Order
     },
     {
-      path: '/orderDetailed',
+      path: '/OrderDetailed',
       component: OrderDetailed
     },
     {
-      path: '/addRating',
-      name: 'addRating',
-      component: addRating
+      path: '/AddRating',
+      name: 'AddRating',
+      component: AddRating
     },
     {
-      path: '/myzone',
-      name: 'myzone',
-      component: Myzone
+      path: '/Account',
+      name: 'Account',
+      component: Account
     }
   ]
 })
