@@ -1,0 +1,27 @@
+@mixin border-1px($color,$solid:solid){
+  position: relative;
+  &:after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    content: ' ';
+    bottom: 0;
+    border-bottom: 1px $solid $color;
+
+  }
+}
+
+@mixin border-none () {
+  &:after {
+    display: none;
+  }
+}
+
+$path: "../../components/";
+@mixin bg-image($url) {
+  background-image: url('#{$path}#{$url}@2x.png');
+    @media (min-device-pixel-ratio: 3),(-webkit-min-device-pixel-ratio: 3) {
+    background-image: url("#{$path}#{$url}@3x.png");
+  }
+}

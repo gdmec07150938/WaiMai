@@ -46,7 +46,7 @@
   import IScroll from 'iscroll'
   import rater from '@/components/rater/rater'
   import {isEmptyObject} from '@/common/js/util.js'
-  const FROMPATH = '/order'
+  const FROMPATH = '/OrderItem'
   export default {
     props: {},
     data: function () {
@@ -63,19 +63,13 @@
     methods: {
       check_data: function () {
         if (isEmptyObject(this.order)) {
-          this.$router.push('/order')
+          this.$router.push('/OrderItem')
         }
       },
       scroll_init: function () {
         this.$nextTick(function () {
           if (!this.addRatingScroll) {
             this.addRatingScroll = new IScroll(this.$el, {mouseWheel: true, click: true})
-            this.addRatingScroll.on('beforeScrollStart', () => {
-              console.log(document.activeElement)
-              if (document.activeElement) {
-                document.activeElement.blur()
-              }
-            })
           } else {
             this.addRatingScroll.refresh()
           }

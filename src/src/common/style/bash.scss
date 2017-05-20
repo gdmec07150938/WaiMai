@@ -1,0 +1,27 @@
+@media (min-device-pixel-ratio: 1.5),(-webkit-device-pixel-ratio: 1.5) {
+  .border-1px {
+    &::after {
+      -webkit-transform: scaleY(0.7);
+      transform: scaleY(0.7);
+    }
+  }
+}
+
+@media (min-device-pixel-ratio: 2),(-webkit-device-pixel-ratio: 2) {
+  .border-1px {
+    &::after {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+    }
+  }
+}
+
+//全局样式
+body{
+  font-weight: 200;
+  line-height: 1;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: none;
+}
