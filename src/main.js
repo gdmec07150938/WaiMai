@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import VueResource from 'vue-resource'
 import '@/common/style/index.scss'
 import {ORDER_STORE} from '@/common/js/store.js'
@@ -15,6 +16,7 @@ Vue.use(VueResource)
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
