@@ -4,6 +4,7 @@ import Order from '@/page/order/Order'
 import OrderDetailed from '@/page/order/next/OrderDetailed'
 import AddRating from '@/page/addRating/AddRating'
 import Account from '@/page/account/Account'
+import ActionBar from '@/components/header/ActionBar'
 Vue.use(Router)
 
 export default new Router({
@@ -11,21 +12,25 @@ export default new Router({
     {
       path: '/Order',
       name: 'Order',
-      component: Order
+      components: {default: Order, header: ActionBar},
+      props: {header: {title: '订单'}}
     },
     {
       path: '/OrderDetailed',
-      component: OrderDetailed
+      components: {default: OrderDetailed, header: ActionBar},
+      props: {header: {title: '订单详情', show: true}}
     },
     {
       path: '/AddRating',
       name: 'AddRating',
-      component: AddRating
+      components: {default: AddRating, header: ActionBar},
+      props: {header: {title: '添加评价', show: true}}
     },
     {
       path: '/Account',
       name: 'Account',
-      component: Account
+      components: {default: Account, header: ActionBar},
+      props: {header: {title: '我的', show: false}}
     }
   ]
 })

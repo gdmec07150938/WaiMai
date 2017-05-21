@@ -1,9 +1,8 @@
 <template>
   <div class="myzone_index">
-    <ActionBar title="我的" :show="true"></ActionBar>
     <div class="myzone_content">
       <div class="myzone_info clear">
-        <img src="slider-pic11.jpeg" alt="">
+        <img src="./slider-pic11.jpeg" alt="">
         <div class="myzone_uid">
           <h3>admin</h3>
           <p>183*****935</p>
@@ -32,30 +31,29 @@
       </a>
     </div>
     <div class="some_bar">
-    <img src="my.png" alt="">
+    <img src="./my.png" alt="">
       <span class="v-md">我的订单</span>
     </div>
     <div class="some_bar">
-    <img src="zhifen.png" alt="">
+    <img src="./zhifen.png" alt="">
       <span class="v-md">积分商城</span>
     </div>
     <div class="some_bar">
-    <img src="huiyuan.png" alt="">
+    <img src="./huiyuan.png" alt="">
       <span class="v-md">会员卡</span>
     </div>
 
     <div class="some_bar ">
-    <img src="fuwu.png" alt="">
+    <img src="./fuwu.png" alt="">
       <span class="v-md">服务中心</span>
     </div>
     <div class="some_bar">
-    <img src="app.png" alt="">
+    <img src="./app.png" alt="">
       <span class="v-md">下载APP</span>
     </div>
   </div>
 </template>
 <script>
-import ActionBar from '@/components/header/ActionBar'
 export default {
   name: 'myzone',
   data () {
@@ -63,9 +61,6 @@ export default {
     }
   },
   methods: {
-  },
-  components: {
-    'ActionBar': ActionBar
   }
 }
 </script>
