@@ -10,6 +10,12 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/Home',
+      name: 'Home',
+      components: {default: null, header: ActionBar},
+      props: {header: {title: '首页'}}
+    },
+    {
       path: '/Order',
       name: 'Order',
       components: {default: Order, header: ActionBar},
