@@ -63,7 +63,7 @@
     methods: {
       check_data: function () {
         if (isEmptyObject(this.order)) {
-          this.$router.push('/OrderItem')
+          this.$router.push('/Order')
         }
       },
       scroll_init: function () {
