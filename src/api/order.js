@@ -8,8 +8,8 @@ export default {
   getOrder (success, error) {
     Vue.http.get(ORDER_LIST).then((response) => {
       success(parseJson(response.body))
+    }, (reject) => {
+      error()
     })
-  },
-  buyProducts (products, cb, errorCb) {
   }
 }

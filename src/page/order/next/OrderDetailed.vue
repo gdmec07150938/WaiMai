@@ -81,7 +81,7 @@
     },
     data: function () {
       return {
-        order: this.GLOBAL.state.order,
+        order: {},
         orderDetail: {}
       }
     },
@@ -93,7 +93,7 @@
       },
       check_data: function () {
         if (isEmptyObject(this.order)) {
-          this.$router.push('/OrderItem')
+          this.$router.push('/Order')
         }
       },
       init_scroll: function () {

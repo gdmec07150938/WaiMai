@@ -9,9 +9,9 @@
 </template>
 <script type="text/ecmascript-6">
   import IScroll from 'iscroll'
-  import {parseJson} from '@/common/js/util.js'
   import OrderItem from '@/page/order/item/OrderItem'
   import ActionBar from '@/components/header/ActionBar'
+  import {isEmptyObject} from '@/common/js/util.js'
   export default {
     name: 'OrderList',
     data: function () {
@@ -21,10 +21,12 @@
     },
     methods: {
       order_init: function () {
-        this.$http.get('/api/orderList').then((response) => {
-          this.orderList = parseJson(response.body)
-        })
-        this.$store.dispatch('order/GET_ORDER')
+        if (isEmptyObject(this.orderList) && isEmptyObject(this.$store.state.order.orderList)) {
+          this.$store.dispatch('order/GET_ORDER')
+          this.orderList = this.$store.state.order.orderList
+        } else if (isEmptyObject(this.orderList) && !isEmptyObject(this.$store.state.order.orderList)) {
+          this.orderList = this.$store.state.order.orderList
+        }
       },
       scroll_init: function () {
         this.$nextTick(function () {
