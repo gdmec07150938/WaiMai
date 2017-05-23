@@ -24,6 +24,7 @@
         this.$http.get('/api/orderList').then((response) => {
           this.orderList = parseJson(response.body)
         })
+        this.$store.dispatch('order/GET_ORDER')
       },
       scroll_init: function () {
         this.$nextTick(function () {
