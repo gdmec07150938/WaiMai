@@ -5,9 +5,9 @@ import {ORDER_LIST} from './api-list'
 import Vue from 'vue'
 import {parseJson} from '@/common/js/util.js'
 export default {
-  getOrder () {
+  getOrder (success, error) {
     Vue.http.get(ORDER_LIST).then((response) => {
-      return parseJson(response.body)
+      success(parseJson(response.body))
     })
   },
   buyProducts (products, cb, errorCb) {

@@ -15,8 +15,9 @@ const mutations = {
 const actions = {
   [types.GET_ORDER] ({state, commit, rootState}) {  //  取得订单列表
     console.log('wo 执行了')
-    let result = orderAPI.getOrder()
-    commit(types.SET_ORDER, result)
+    orderAPI.getOrder((orderList) => {
+      commit(types.SET_ORDER, orderList)
+    })
   }
 }
 export default {
