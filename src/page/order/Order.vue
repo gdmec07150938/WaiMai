@@ -22,8 +22,9 @@
     methods: {
       order_init: function () {
         if (isEmptyObject(this.orderList) && isEmptyObject(this.$store.state.order.orderList)) {
-          this.$store.dispatch('order/GET_ORDER')
-          this.orderList = this.$store.state.order.orderList
+          this.$store.dispatch('order/GET_ORDER').then(() => {
+            this.orderList = this.$store.state.order.orderList
+          })
         } else if (isEmptyObject(this.orderList) && !isEmptyObject(this.$store.state.order.orderList)) {
           this.orderList = this.$store.state.order.orderList
         }
@@ -59,6 +60,5 @@
         width: 100%;
         .orderList-wrapper{}
     }
-
 </style>
 

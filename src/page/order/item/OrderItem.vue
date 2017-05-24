@@ -49,9 +49,8 @@
     },
     methods: {
       showDetailed: function (order) {
-        console.log(this)
-        this.GLOBAL.setOrderAction(order)
-        this.$router.push('/orderDetailed')
+        this.$store.commit('order/SET_ORDER_ITEM', order)
+        this.$router.push({path: 'OrderDetailed', query: {orderItem: order}})
       },
       addRating: function (order) {
         this.GLOBAL.setOrderAction(order)

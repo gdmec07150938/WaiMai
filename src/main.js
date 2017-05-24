@@ -2,8 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
 import store from './store'
+import router from './router'
 import VueResource from 'vue-resource'
 import '@/common/style/index.scss'
 import {ORDER_STORE} from '@/common/js/store.js'
@@ -15,9 +15,9 @@ Vue.use(VueResource)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
   store,
+  router,
   template: '<App/>',
   components: { App }
 })
-console.log(ORDER_STORE)
+console.log(Vue)

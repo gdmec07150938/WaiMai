@@ -24,7 +24,7 @@ export default new Router({
     {
       path: '/OrderDetailed',
       components: {default: OrderDetailed, header: ActionBar},
-      props: {header: {title: '订单详情', show: true}}
+      props: { default: (route) => ({ orderItem: route.query.orderItem }) }
     },
     {
       path: '/AddRating',

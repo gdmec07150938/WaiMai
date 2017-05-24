@@ -2,8 +2,8 @@
     <div class="orderDetail">
         <div class="orderDetail-wrapper">
             <div class="title">
-                <h3 class="order-title">{{order.timeline_node.title}}</h3>
-                <p class="order-desc">{{order.timeline_node.description}}</p>
+                <h3 class="order-title">{{orderItem.timeline_node.title}}</h3>
+                <p class="order-desc">{{orderItem.timeline_node.description}}</p>
             </div>
             <split></split>
             <div class="content">
@@ -11,13 +11,13 @@
                 <div class="content-content">
                     <div class="order-header border-1px">
                     <span class="seller-avatar">
-                        <img :src="order.restaurant_image_url" width="28px" height="28px">
+                        <img :src="orderItem.restaurant_image_url" width="28px" height="28px">
                     </span>
-                        <h2 class="seller-name">{{order.restaurant_name}}</h2>
+                        <h2 class="seller-name">{{orderItem.restaurant_name}}</h2>
                         <i class="icon-keyboard_arrow_right"></i>
                     </div>
                     <ul class="food-list border-1px">
-                        <li class="food" v-for="item in order.basket.group[0]">
+                        <li class="food" v-for="item in orderItem.basket.group[0]">
                             <span class="name">{{item.name}}</span>
                             <span class="count">x{{item.quantity}}</span>
                             <span class="price">￥{{item.price}}</span>
@@ -25,17 +25,17 @@
                     </ul>
                     <div class="fee border-1px">
                         <div class="deliver_fee">
-                            <span class="name">{{order.basket.deliver_fee.name}}</span>
-                            <span class="price">￥{{order.basket.deliver_fee.price}}</span>
+                            <span class="name">{{orderItem.basket.deliver_fee.name}}</span>
+                            <span class="price">￥{{orderItem.basket.deliver_fee.price}}</span>
                         </div>
-                        <div class="packing_fee" v-if="order.basket.packing_fee">
-                            <span class="name">{{order.basket.packing_fee.name}}</span>
-                            <span class="count">x{{order.basket.packing_fee.quantity}}</span>
-                            <span class="price">￥{{order.basket.packing_fee.price}}</span>
+                        <div class="packing_fee" v-if="orderItem.basket.packing_fee">
+                            <span class="name">{{orderItem.basket.packing_fee.name}}</span>
+                            <span class="count">x{{orderItem.basket.packing_fee.quantity}}</span>
+                            <span class="price">￥{{orderItem.basket.packing_fee.price}}</span>
                         </div>
                     </div>
                     <div class="total">
-                        <span class="total-price">实付<i>￥{{order.total_amount}}</i></span>
+                        <span class="total-price">实付<i>￥{{orderItem.total_amount}}</i></span>
                     </div>
                 </div>
             </div>
@@ -75,13 +75,14 @@
   import IScroll from 'iscroll'
   import {parseJson, isEmptyObject} from '@/common/js/util.js'
   import split from '@/components/split/split'
-  const FROMPATH = '/OrderItem'
+  const FROMPATH = '/Order'
   export default {
     props: {
+      orderItem: {
+      }
     },
     data: function () {
       return {
-        order: {},
         orderDetail: {}
       }
     },
@@ -92,7 +93,7 @@
         })
       },
       check_data: function () {
-        if (isEmptyObject(this.order)) {
+        if (isEmptyObject(this.orderItem)) {
           this.$router.push('/Order')
         }
       },
@@ -116,6 +117,7 @@
       next()
     },
     created: function () {
+      console.log(this.orderItem)
       this.orderDetail_init()
       this.check_data()
       this.init_scroll()

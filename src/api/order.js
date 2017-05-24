@@ -9,7 +9,7 @@ export default {
     Vue.http.get(ORDER_LIST).then((response) => {
       success(parseJson(response.body))
     }, (reject) => {
-      error()
+      console.log('出错了')
     })
   }
 }
