@@ -3,6 +3,8 @@
  */
 let ApiUrl = '/api/'
 const ORDER_LIST = ApiUrl + 'orderList'
+const SHOP_LIST = ApiUrl + 'shopList'
 export {
-  ORDER_LIST
+  ORDER_LIST,
+  SHOP_LIST
 }
