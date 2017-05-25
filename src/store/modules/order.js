@@ -4,16 +4,12 @@
 import * as types from '../mutation-types'
 import orderAPI from '@/api/order.js'
 const state = {
-  orderList: {},
-  orderItem: {}
+  orderList: {}
 }
 const getters = {}
 const mutations = {
   [types.SET_ORDER] (state, payload) {
     state.orderList = payload
-  },
-  [types.SET_ORDER_ITEM] (state, playload) {
-    state.orderItem = playload
   }
 }
 const actions = {
