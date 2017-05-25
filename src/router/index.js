@@ -1,19 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Home from '@/page/home/Home'
 import Order from '@/page/order/Order'
-import OrderDetailed from '@/page/order/next/OrderDetailed'
-import AddRating from '@/page/addRating/AddRating'
 import Account from '@/page/account/Account'
+import AddRating from '@/page/addRating/AddRating'
+import OrderDetailed from '@/page/order/next/OrderDetailed'
 import ActionBar from '@/components/header/ActionBar'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/Home',
+      path: '/',
       name: 'Home',
-      components: {default: null, header: ActionBar},
-      props: {header: {title: '首页'}}
+      components: {default: Home}
     },
     {
       path: '/Order',

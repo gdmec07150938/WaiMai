@@ -6,9 +6,7 @@ import store from './store'
 import router from './router'
 import VueResource from 'vue-resource'
 import '@/common/style/index.scss'
-import {ORDER_STORE} from '@/common/js/store.js'
-//  自定义全局变量
-Vue.prototype.GLOBAL = ORDER_STORE
+
 Vue.config.productionTip = false
 Vue.use(VueResource)
 
