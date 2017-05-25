@@ -30,7 +30,7 @@ export default new Router({
       path: '/AddRating',
       name: 'AddRating',
       components: {default: AddRating, header: ActionBar},
-      props: {header: {title: '添加评价', show: true}}
+      props: {default: (route) => ({ orderItem: route.query.orderItem }), header: {title: '添加评价', show: true}}
     },
     {
       path: '/Account',

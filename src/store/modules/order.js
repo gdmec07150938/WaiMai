@@ -9,7 +9,7 @@ const state = {
 const getters = {}
 const mutations = {
   [types.SET_ORDER] (state, payload) {
-    state.shopList = payload
+    state.orderList = payload
   }
 }
 const actions = {

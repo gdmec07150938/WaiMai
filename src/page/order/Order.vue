@@ -16,17 +16,17 @@
     name: 'OrderList',
     data: function () {
       return {
-        shopList: null
+        orderList: {}
       }
     },
     methods: {
       order_init: function () {
-        if (isEmptyObject(this.shopList) && isEmptyObject(this.$store.state.order.shopList)) {
+        if (isEmptyObject(this.orderList) && isEmptyObject(this.$store.state.order.orderList)) {
           this.$store.dispatch('order/GET_ORDER').then(() => {
-            this.shopList = this.$store.state.order.shopList
+            this.orderList = this.$store.state.order.orderList
           })
-        } else if (isEmptyObject(this.shopList) && !isEmptyObject(this.$store.state.order.shopList)) {
-          this.shopList = this.$store.state.order.shopList
+        } else if (isEmptyObject(this.orderList) && !isEmptyObject(this.$store.state.order.orderList)) {
+          this.orderList = this.$store.state.order.orderList
         }
       },
       scroll_init: function () {

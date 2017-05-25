@@ -48,11 +48,13 @@
   import {isEmptyObject} from '@/common/js/util.js'
   const FROMPATH = '/OrderItem'
   export default {
-    props: {},
+    props: {
+      orderItem: {}
+    },
     data: function () {
       return {
-        order: this.GLOBAL.state.order,
-        foodList: this.GLOBAL.state.order.basket.group[0],
+        order: this.orderItem,
+        foodList: this.orderItem.basket.group[0],
         thumb: [{
           foodID: 0,
           thumb_up: false,
