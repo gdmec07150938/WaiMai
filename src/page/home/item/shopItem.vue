@@ -6,27 +6,31 @@
             </div>
         </div>
         <div class="shop-desc shop-right">
-            <section class="seller">
-                <i class="branch" v-show="shopItem.is_premium" style=""></i>
-                <h3>{{shopItem.name}}</h3>
+            <section class="seller flex-display">
+                <div>
+                    <i class="branch" v-show="shopItem.is_premium" style=""></i>
+                    <h3>{{shopItem.name}}</h3>
+                </div>
             </section>
-            <section class="rating">
-                <v-rater :value="shopItem.rating" :disabled="true" class="rater"></v-rater>
-                <span class="rating-num">{{shopItem.rating}}</span>
-                <span class="order-num">月售{{shopItem.recent_order_num}}单</span>
+            <section class="rating flex-display">
+                <div>
+                    <v-rater :value="shopItem.rating" :disabled="true" class="rater"></v-rater>
+                    <span class="rating-num">{{shopItem.rating}}</span>
+                    <span class="order-num">月售{{shopItem.recent_order_num}}单</span>
+                </div>
             </section>
-            <section class="fee">
-                <div class="moneylimit">
+            <section class="fee flex-display">
+                <div class="money-limit">
                     <span>{{shopItem.piecewise_agent_fee.rules[0].price}}起送</span>
                     <span>{{shopItem.piecewise_agent_fee.tips}}</span>
                     <span>{{shopItem.average_cost}}</span>
                 </div>
-                <div>
+                <div class="deliver">
                     <span>{{shopItem.distance}}m</span>
                     <span>{{shopItem.order_lead_time}}分钟</span>
                 </div>
             </section>
-            <section class="activities"></section>
+            <section class="activities flex-display"></section>
         </div>
     </section>
 </template>
@@ -75,12 +79,16 @@
             }
         }
         .shop-right{
+            flex: 1 0;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             padding:.4rem .266667rem .4rem 0;
+            .flex-display{
+                display: flex;
+                justify-content: space-between;
+            }
             .seller{
-                display: block;
-                margin-top: 10px;
                 .branch{
                     display: inline-block;
                     width: 30px;
@@ -92,11 +100,16 @@
                 }
                 h3{
                     display: inline-block;
-                    height: 20px;
+                    max-width: 5rem;
+                    height: .426667rem;
                     font-size: .4rem;
                     font-weight: 700;
                     vertical-align: middle;
                     color:#333;
+
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
             }
             .rating{
@@ -108,6 +121,12 @@
             }
             .fee{
                 font-size: .293333rem;
+                .money-limit{
+                    display: inline-block;
+                }
+                .deliver{
+                    display: inline-block;
+                }
             }
             .activities{
                 font-size: .293333rem;
