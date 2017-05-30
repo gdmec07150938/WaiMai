@@ -1,5 +1,5 @@
 <template>
-    <section class="shop-item" @click="onClickItem(shopItem)">
+    <section class="shop-item border-1px" @click="onClickItem(shopItem)">
         <div class="shop-logo shop-left">
             <div class="logo-main-wrapper">
                 <img :src="ImageUrl+shopItem.image_path" width="55px" height="55px" class="logo">
@@ -7,13 +7,13 @@
         </div>
         <div class="shop-desc shop-right">
             <section class="seller flex-display">
-                <div>
+                <div class="flex-display">
                     <i class="branch" v-show="shopItem.is_premium" style=""></i>
                     <h3>{{shopItem.name}}</h3>
                 </div>
             </section>
             <section class="rating flex-display">
-                <div>
+                <div class="">
                     <v-rater :value="shopItem.rating" :disabled="true" class="rater"></v-rater>
                     <span class="rating-num">{{shopItem.rating}}</span>
                     <span class="order-num">月售{{shopItem.recent_order_num}}单</span>
@@ -61,6 +61,7 @@
 <style lang="scss" rel="stylesheet/scss">
     @import "../../../common/style/mixin";
     .shop-item {
+        @include border-1px(#eee);
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -87,6 +88,7 @@
             .flex-display{
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
             }
             .seller{
                 .branch{
@@ -101,10 +103,10 @@
                 h3{
                     display: inline-block;
                     max-width: 5rem;
-                    height: .426667rem;
+                    height: 100%;
                     font-size: .4rem;
-                    font-weight: 700;
-                    vertical-align: middle;
+                    font-weight: 500;
+                    line-height: normal;
                     color:#333;
 
                     overflow: hidden;
@@ -112,14 +114,23 @@
                     text-overflow: ellipsis;
                 }
             }
-            .rating{
+            .rating {
+                margin-top: .2rem;
                 font-size: .293333rem;
                 color: #666;
-                .rater{}
-                .rating-num{}
-                .order-num{}
+                .rater {
+                }
+                .rating-num {
+                    margin: 0 .106667rem;
+                    color: #ff6000;
+                }
+                .order-num {
+                    font-size: .293333rem;
+                    color: #666;
+                }
             }
             .fee{
+                margin-top: .226667rem;
                 font-size: .293333rem;
                 .money-limit{
                     display: inline-block;

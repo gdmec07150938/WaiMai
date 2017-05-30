@@ -7,6 +7,7 @@
                 <swipe-item class="slide3"></swipe-item>
             </swipe>
             <div class="shop-list">
+                <h2 class="shop-title border-1px">推荐商家</h2>
                 <shop-item v-for="(item,index) in shopList" key="index" :shopItem="item"></shop-item>
             </div>
         </div>
@@ -62,6 +63,7 @@
   }
 </script>
 <style lang="scss" rel="stylesheet/scss">
+    @import "../../common/style/mixin";
     .home{
         position: absolute;
         top: 0;
@@ -70,6 +72,19 @@
         overflow: hidden;
         width: 100%;
         .shop-list{
+            .shop-title{
+                @include border-1px(#eee);
+                display: block;
+                width: 100%;
+
+                margin-top: .266667rem;
+                padding-left: .4rem;
+                line-height: .906667rem;
+                font-weight: 600;
+                font-size: .4rem;
+                text-align: left;
+
+            }
         }
         .my-swipe{
             height: 200px;
