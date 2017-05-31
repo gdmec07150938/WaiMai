@@ -20,14 +20,14 @@
                 </div>
             </section>
             <section class="fee flex-display">
-                <div class="money-limit">
+                <div class="money-limit flex-display">
                     <span>{{shopItem.piecewise_agent_fee.rules[0].price}}起送</span>
                     <span>{{shopItem.piecewise_agent_fee.tips}}</span>
                     <span>{{shopItem.average_cost}}</span>
                 </div>
-                <div class="deliver">
-                    <span>{{shopItem.distance}}m</span>
-                    <span>{{shopItem.order_lead_time}}分钟</span>
+                <div class="deliver flex-display">
+                    <span class="deliver-distance">{{shopItem.distance}}m</span>
+                    <span class="deliver-time">{{shopItem.order_lead_time}}分钟</span>
                 </div>
             </section>
             <section class="activities flex-display"></section>
@@ -48,7 +48,9 @@
       shopItem: {type: Object, required: true}
     },
     methods: {
-      onClickItem: function (shopItem) {}
+      onClickItem: function (shopItem) {
+        console.log(shopItem.id)
+      }
     },
     mounted: function () {
       console.log(ImageUrl)
@@ -132,11 +134,26 @@
             .fee{
                 margin-top: .226667rem;
                 font-size: .293333rem;
+                color: #666;
                 .money-limit{
-                    display: inline-block;
+                    flex: 1 1;
+                    font-size: .293333rem;
+                    justify-content: flex-start;
+                    & span + span::before {
+                        margin: 0 .08rem;
+                        color: #ddd;
+                        content: "/";
+                    }
                 }
                 .deliver{
-                    display: inline-block;
+                    .deliver-distance{
+                        font-size: .293333rem;
+                        color: #999;
+                    }
+                    .deliver-time{
+                        font-size: .293333rem;
+                        color:#2395ff
+                    }
                 }
             }
             .activities{
