@@ -1,15 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/page/home/Home'
-import Order from '@/page/order/Order'
-import Account from '@/page/account/Account'
 import Seller from '@/page/seller/Seller'
-import AddRating from '@/page/addRating/AddRating'
-import OrderDetailed from '@/page/order/next/OrderDetailed'
 import ActionBar from '@/components/header/ActionBar'
 import Goods from '@/page/seller/item/goods/goods'
-import Ratings from '@/page/seller/item/ratings/ratings'
-import SellerDesc from '@/page/seller/item/sellerDesc/sellerDesc'
+//  import Order from '@/page/order/Order'
+//  import Account from '@/page/account/Account'
+//  import AddRating from '@/page/addRating/AddRating'
+//  import OrderDetailed from '@/page/order/next/OrderDetailed'
+//  import Ratings from '@/page/seller/item/ratings/ratings'
+//  import SellerDesc from '@/page/seller/item/sellerDesc/sellerDesc'
+
+//  懒加载
+const Order = resolve => require(['@/page/order/Order'], resolve)
+const Account = resolve => require(['@/page/account/Account'], resolve)
+const AddRating = resolve => require(['@/page/addRating/AddRating'], resolve)
+const OrderDetailed = resolve => require(['@/page/order/next/OrderDetailed'], resolve)
+const Ratings = resolve => require(['@/page/seller/item/ratings/ratings'], resolve)
+const SellerDesc = resolve => require(['@/page/seller/item/sellerDesc/sellerDesc'], resolve)
+
 Vue.use(Router)
 
 export default new Router({
@@ -45,7 +54,7 @@ export default new Router({
     {
       path: '/Seller',
       name: 'Seller',
-      components: {default: Seller},
+      component: Seller,
       props: {},
       children: [
         { path: 'goods', component: Goods },

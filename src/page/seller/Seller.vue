@@ -32,7 +32,7 @@ export default {
     })
   },
   mounted: function () {
-    this.$router.push({path: '/Seller/goods'})
+    this.$router.replace({path: '/Seller/goods'})
   },
   data: function () {
     return {
