@@ -3,9 +3,13 @@ import Router from 'vue-router'
 import Home from '@/page/home/Home'
 import Order from '@/page/order/Order'
 import Account from '@/page/account/Account'
+import Seller from '@/page/seller/Seller'
 import AddRating from '@/page/addRating/AddRating'
 import OrderDetailed from '@/page/order/next/OrderDetailed'
 import ActionBar from '@/components/header/ActionBar'
+import Goods from '@/page/seller/item/goods/goods'
+import Ratings from '@/page/seller/item/ratings/ratings'
+import SellerDesc from '@/page/seller/item/sellerDesc/sellerDesc'
 Vue.use(Router)
 
 export default new Router({
@@ -37,6 +41,17 @@ export default new Router({
       name: 'Account',
       components: {default: Account, header: ActionBar},
       props: {header: {title: '我的', show: false}}
+    },
+    {
+      path: '/Seller',
+      name: 'Seller',
+      components: {default: Seller},
+      props: {},
+      children: [
+        { path: 'goods', component: Goods },
+        { path: 'ratings', component: Ratings },
+        { path: 'sellerDesc', component: SellerDesc }
+      ]
     }
   ]
 })

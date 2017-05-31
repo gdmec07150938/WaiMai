@@ -50,6 +50,7 @@
     methods: {
       onClickItem: function (shopItem) {
         console.log(shopItem.id)
+        this.$router.push({path: '/Seller'})
       }
     },
     mounted: function () {

@@ -1,8 +1,8 @@
 <template>
     <div class="addRating">
         <div class="addRating-wrapper">
-            <div class="header">
-                <div class="seller">
+            <div class="addRating-header">
+                <div class="addRating-seller">
                 <span class="seller-icon">
                     <img :src="order.restaurant_image_url" width="35px" height="35px">
                 </span>
@@ -139,12 +139,13 @@
         .addRating-wrapper{
             min-width: 300px;
             margin: 0 15px;
-            .header{
+            .addRating-header{
                 display: block;
                 width: 100%;
                 height: 150px;
                 margin-top: 12px;
-                .seller{
+                text-align: center;
+                .addRating-seller{
                     display: block;
                     margin-bottom: 14px;
                     .seller-icon{
