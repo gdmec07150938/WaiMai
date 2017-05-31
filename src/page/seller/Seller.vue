@@ -46,7 +46,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
   @import "../../common/style/mixin";
   .seller{
     background-color: #fff;

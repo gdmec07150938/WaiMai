@@ -1,5 +1,8 @@
 <template>
     <div class="header">
+        <nav class="shop-header-navBar">
+            <router-link to="/" class="icon-arrow_lift"></router-link>
+        </nav>
         <div class="content-wrapper">
             <div class="avatar">
                 <img v-if="seller.avatar" :src="seller.avatar" width="64" height="64">
@@ -46,9 +49,23 @@
     .header{
         position: relative;
         background:rgba(7,17,27,0.3);
+      .shop-header-navBar{
+          position: relative;
+          display: block;
+          text-align: left;
+          width: 100%;
+          height: 24px;
+          a{
+              color: #fff;
+              font-size:16px;
+              text-decoration: none;
+              line-height: 24px;
+              padding-left: 24px;
+          }
+      }
       .content-wrapper{
         position: relative;
-        padding: 24px 12px 18px 24px ;
+        padding: 0px 12px 18px 24px ;
         font-size: 0;
         .avatar {
             vertical-align: top;
