@@ -48,8 +48,11 @@ export default {
 </script>
 <style lang="scss" rel="stylesheet/scss" scoped>
   @import "../../common/style/mixin";
-  .seller{
-    background-color: #fff;
+  #seller{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
   }
   .tab {
     display: flex;

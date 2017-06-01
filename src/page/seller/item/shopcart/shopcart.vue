@@ -150,7 +150,6 @@
         position: fixed;
         left: 0;
         bottom: 0;
-        z-index: 50;
         width: 100%;
         height: 48px;
         .content{
@@ -292,7 +291,7 @@
                     position: relative;
                     padding: 12px 0;
                     box-sizing: border-box;
-                    @include  border-1px(rgba(7,17,27,0.1))
+                    @include  border-1px(rgba(7,17,27,0.1));
                     .food-name{
                         line-height: 24px;
                         font-size: 14px;
@@ -320,6 +319,7 @@
             position: fixed;
             left: 0;
             top: 0;
+            bottom: 0;
             width: 100%;
             height: 100%;
             z-index: -2;

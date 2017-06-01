@@ -1,43 +1,48 @@
 <template>
-    <div class="goods">
-        <div class="menu-wrapper" ref="menuScroll">
-            <ul>
-              <li v-for="(item, index) in goods" class="menu-item" :class="{'current':currentIndex === index}" @click="SelectMeun(index)">
+    <div>
+        <div class="goods">
+            <div class="menu-wrapper" ref="menuScroll">
+                <ul>
+                    <li v-for="(item, index) in goods" class="menu-item" :class="{'current':currentIndex === index}"
+                        @click="SelectMeun(index)">
                 <span class="text border-1px">
                     <span v-show="item.type > 0" class="icon" :class="classMap[item.type]"></span>{{item.name}}</span>
-              </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="foods-wrapper" ref="foodsScroll">
+                <ul>
+                    <li v-for="item in goods" class="food-list food-list-hook">
+                        <h1 class="title">{{item.name}}</h1>
+                        <ul>
+                            <li v-for="food in item.foods" class="food-item border-1px">
+                                <div class="icon">
+                                    <img :src="food.icon" width="57px" height="57">
+                                </div>
+                                <div class="content">
+                                    <h2 class="name">{{food.name}}</h2>
+                                    <p class="desc">{{food.description}}</p>
+                                    <div class="extra">
+                                        <span class="count">月售{{food.sellCount}}份</span>
+                                        <span>好评率{{food.rating}}%</span>
+                                    </div>
+                                    <div class="price">
+                                        <span class="now">￥{{food.price}}</span>
+                                        <span v-show="food.oldPrice" class="old">￥{{food.oldPrice}}</span>
+                                    </div>
+                                    <div class="cartcontrol-wrapper">
+                                        <cartcontrol :food="food"></cartcontrol>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="foods-wrapper" ref="foodsScroll">
-            <ul>
-                <li v-for="item in goods" class="food-list food-list-hook">
-                    <h1 class="title">{{item.name}}</h1>
-                    <ul>
-                        <li v-for="food in item.foods" class="food-item border-1px">
-                            <div class="icon">
-                                <img :src="food.icon" width="57px" height="57">
-                            </div>
-                            <div class="content">
-                                <h2 class="name">{{food.name}}</h2>
-                                <p class="desc">{{food.description}}</p>
-                                <div class="extra">
-                                    <span class="count">月售{{food.sellCount}}份</span>
-                                    <span>好评率{{food.rating}}%</span>
-                                </div>
-                                <div class="price">
-                                    <span class="now">￥{{food.price}}</span>
-                                    <span v-show="food.oldPrice" class="old">￥{{food.oldPrice}}</span>
-                                </div>
-                                <div class="cartcontrol-wrapper">
-                                    <cartcontrol :food="food"></cartcontrol>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <shop-cart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice" :select-food="selectFood"></shop-cart>
+        <shop-cart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"
+                   :select-food="selectFood">
+        </shop-cart>
     </div>
 </template>
 
@@ -77,6 +82,7 @@
               }
             }
           }
+          this.$store.commit('shopCart/SET_SELECT_FOOD', foods)
           return foods
         }
       },
@@ -133,9 +139,9 @@
         width: 100%;
         position: absolute;
         top: 174px;
-        bottom: 46px;
+        bottom: 48px;
         overflow:hidden;
-        z-index: 10;
+        //  z-index: 10;
         .menu-wrapper{
             flex: 0 0 80px;
             width: 80px;

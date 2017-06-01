@@ -35,9 +35,9 @@
     }
   }
 </script>
-<style lang="scss" rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
   .footGuide{
-      position: absolute;
+      position: fixed;
       bottom: 0px;
       left: 0px;
       width: 100%;
