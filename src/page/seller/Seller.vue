@@ -21,12 +21,12 @@
 <script>
 import header from './item/header/header.vue'
 import {parseJson, parentUrl} from '@/common/js/util.js'
-
+import {ApiUrl} from '@/api/api-list.js'
 export default {
   name: 'seller',
   components: {'v-header': header},
   created: function () {
-    this.$http.get('/api/seller').then((res) => {
+    this.$http.get(ApiUrl + 'seller').then((res) => {
       let json = res.body
       this.seller = Object.assign({}, this.seller, parseJson(json))
     })

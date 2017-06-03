@@ -63,6 +63,7 @@
     import ratingSelect from '../ratingSelect/ratingSelect'
     import {parseJson} from '@/common/js/util.js'
     import rater from '@/components/rater/rater'
+    import {ApiUrl} from '@/api/api-list.js'
     export default {
       props: {
         seller: {
@@ -122,7 +123,7 @@
         split, ratingSelect, rater
       },
       created: function () {
-        this.$http.get('api/ratings').then((res) => {
+        this.$http.get(ApiUrl + 'ratings').then((res) => {
           this.ratings = parseJson(res.body)
           this.raingsBackUp = this.ratings
           this.$nextTick(() => {

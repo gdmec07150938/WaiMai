@@ -51,6 +51,7 @@
     import ShopCart from '../shopcart/shopcart'
     import {parseJson} from '@/common/js/util.js'
     import cartcontrol from '../cartcontrol/cartcontrol'
+    import {ApiUrl} from '@/api/api-list.js'
     export default {
       props: ['seller'],
       data: function () {
@@ -120,7 +121,7 @@
       },
       created: function () {
         this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
-        this.$http.get('api/goods/').then((res) => {
+        this.$http.get(ApiUrl + 'goods/').then((res) => {
           this.goods = parseJson(res.body)
           this.$nextTick(function () {
             this._initScroll()
