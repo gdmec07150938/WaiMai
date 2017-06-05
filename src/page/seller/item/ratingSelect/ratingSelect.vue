@@ -77,6 +77,7 @@ export default {
     select: function (rateType) {
       this.dataSelectType = rateType
       this.eventBus.$emit('select', this.dataSelectType)
+      console.log('select emit')
     },
     toggleContent: function () {
       this.dataOnlyContent = !this.dataOnlyContent

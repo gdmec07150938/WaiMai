@@ -103,7 +103,7 @@
     methods: {
       _initScroll: function () {
         if (!this.mySellerScroll || !this.picWrapper) {
-          this.mySellerScroll = new IScroll(this.$el, {click: true})
+          this.mySellerScroll = new IScroll(this.$el, {mouseWheel: true, click: true})
           this.picWrapper = new IScroll(this.$refs.picWrapper, {scrollX: true, scrollY: false})
         } else {
           this.mySellerScroll.refresh()

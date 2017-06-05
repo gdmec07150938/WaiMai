@@ -81,7 +81,7 @@
       },
       methods: {
         _initScroll: function () {
-          this.ratingScroll = new IScroll(this.$el, {})
+          this.ratingScroll = new IScroll(this.$el, {mouseWheel: true, click: true})
         },
         _initEventBus: function () {
           this.eventBus = new Vue()
@@ -131,6 +131,11 @@
           })
         })
         this._initEventBus()
+      },
+      updated: function () {
+        this.$nextTick(() => {
+          this._initScroll()
+        })
       }
     }
 </script>
