@@ -1,13 +1,13 @@
 <template>
     <div class="rating-select">
         <ul class="rating-type">
-            <li v-for="rateType in tagName" class="block" :class="{'select-block':dataSelectType === rateType}" @click="select(rateType)">
+            <li v-for="(rateType, index) in tagName" class="block" :class="{'select-block':dataSelectType === rateType}" @touchend="select(rateType)" :key="index">
                 <span>{{getTagNameByRate(rateType)}}</span>
                 <span class="count" v-if="rateType != TAG.ALL.rateType">{{getRatingsCount(rateType).length}}</span>
                 <span class="count" v-else>{{ratings.length}}</span>
             </li>
         </ul>
-        <div class="switch" :class="{on:dataOnlyContent}" @click="toggleContent">
+        <div class="switch" :class="{on:dataOnlyContent}" @touchend="toggleContent">
             <span class="icon-check_circle" ></span>
             <span class="text">只看有内容的评价</span>
         </div>
@@ -82,6 +82,7 @@ export default {
     toggleContent: function () {
       this.dataOnlyContent = !this.dataOnlyContent
       this.eventBus.$emit('toggleContent', this.dataOnlyContent)
+      console.log('toggleContent')
     }
   },
   computed: {
