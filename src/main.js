@@ -7,6 +7,7 @@ import router from './router'
 import VueResource from 'vue-resource'
 import '@/common/style/index.scss'
 import '@/common/js/rem.js'
+import '@/common/js/sw-register.js'
 
 Vue.config.productionTip = false
 Vue.use(VueResource)
