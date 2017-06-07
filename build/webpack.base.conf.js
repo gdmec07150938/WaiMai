@@ -2,6 +2,7 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -63,5 +64,15 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    // copy custom sw.js assets
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../src/common/js/sw.js'),
+        to: config.build.assetsRoot,
+        ignore: ['.*']
+      }
+    ])
+  ]
 }
